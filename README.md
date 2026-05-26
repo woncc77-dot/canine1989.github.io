@@ -37,31 +37,38 @@ Cursor/VS Code에서 **Live Server** 확장으로 `index.html`을 연습니다.
 
 ## GitHub Pages 배포
 
-로컬에서 확인한 뒤 다음 순서로 배포합니다.
+**저장소:** https://github.com/woncc77-dot/canine1989.github.io
 
-1. GitHub에서 새 저장소를 만듭니다 (예: `fashion-cover-letter`).
-2. 프로젝트 폴더에서 Git 초기화 및 푸시:
+로컬 Git은 이미 초기화·커밋되어 있습니다. GitHub에 로그인한 터미널에서 한 번만 푸시하면 됩니다.
 
 ```powershell
 cd f:\test7
-git init
-git add index.html styles.css script.js 자기소개서.md README.md
-git commit -m "Add static cover letter site"
-git branch -M main
-git remote add origin https://github.com/<USERNAME>/<REPO>.git
 git push -u origin main
 ```
 
-3. 저장소 **Settings → Pages**:
-   - **Source**: Deploy from a branch
-   - **Branch**: `main`
-   - **Folder**: `/ (root)`
-4. 1~2분 후 `https://<USERNAME>.github.io/<REPO>/` 에서 확인합니다.
+(GitHub 로그인 창이 뜨면 승인합니다. Personal Access Token을 쓰는 경우 비밀번호 대신 토큰을 입력합니다.)
+
+### Pages 활성화 (최초 1회)
+
+1. 저장소 **Settings → Pages**
+2. **Build and deployment → Source**: Deploy from a branch
+3. **Branch**: `main`, **Folder**: `/ (root)` → Save
+4. 1~2분 후 접속:
+   - https://woncc77-dot.github.io/canine1989.github.io/
+
+### 이후 수정 시
+
+```powershell
+cd f:\test7
+git add .
+git commit -m "Update site"
+git push
+```
 
 ### 참고
 
-- 에셋은 상대 경로(`styles.css`, `script.js`)를 사용하므로 Project site 배포에 추가 설정이 필요 없습니다.
-- `.cursor/` 폴더는 팀과 스킬을 공유하지 않을 경우 `.gitignore`에 넣어도 됩니다.
+- 에셋은 상대 경로(`styles.css`, `script.js`)를 사용하므로 추가 `base` 설정이 필요 없습니다.
+- `.cursor/`는 `.gitignore`에 포함되어 배포되지 않습니다.
 
 ## 디자인
 
